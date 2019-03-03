@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div>1 EUR - <span id="rate__euro-rub">N/A</span> RUB</div>
+    <div>Updated: <span id="rate__updated">N/A</span></div>
+{% endblock %}
+{% block javascripts %}
+    <script type="application/javascript" src="{{ asset('jquery-3.3.1.min.js') }}"></script>
+    <script type="application/javascript">
+        var rate_url = "{{ path("rates")|escape('js') }}";
+    </script>
+    <script type="application/javascript" src="{{ asset('rate.js') }}"></script>
+{% endblock %}

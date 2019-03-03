@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    maxitest_currency.source.ecb:
+        class: MaxiTest\CurrencyBundle\RateSource\EcbEuro
+    maxitest_currency.source.cbr:
+        class: MaxiTest\CurrencyBundle\RateSource\CbrEuro
+
+    MaxiTest\CurrencyBundle\Service\EuroExchangeRate: ~
+
+    MaxiTest\CurrencyBundle\Service\EuroExchangeRateUpdater:
+        arguments:
+            $sources: ['@maxitest_currency.source.ecb','@maxitest_currency.source.ecb']
+
+    MaxiTest\CurrencyBundle\Command\UpdateCurrencyCommand: ~

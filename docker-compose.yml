@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+    php:
+        build:
+            context: php7-fpm
+            args:
+                TIMEZONE: Europe/Moscow
+        volumes:
+            - ./logs/symfony:/var/www/symfony/app/logs
+            - ./logs/supervisor:/var/log/supervisor
+            - asset-volume:/var/www/symfony/web
+    nginx:
+        build: nginx
+        ports:
+            - 8001:80
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+            - asset-volume:/var/www/symfony/web
+
+volumes:
+  asset-volume:
