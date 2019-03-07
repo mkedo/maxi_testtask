@@ -39,6 +39,7 @@ class EuroExchangeRateUpdater
 
     /**
      * Updates EURO rate from the sources.
+     * @throws RateSourceException
      */
     public function update(): void
     {
