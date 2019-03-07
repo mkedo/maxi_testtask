@@ -29,6 +29,7 @@ class CbrEuroJsonRates
     /**
      * How many rubles for one euro.
      * @return string
+     * @throws RateSourceException
      */
     public function getRubles(): string
     {
